@@ -17,5 +17,11 @@ public class CheckoutSolutionTest {
     public void checkout() {
         Integer returnedValue = test.checkout("ABBACAD");
         assertEquals(210L, returnedValue.longValue());
+
+        returnedValue = test.checkout("ABBaCAD");
+        assertEquals(210L, returnedValue.longValue());
+
+        returnedValue = test.checkout("AxD");
+        assertEquals(-1L, returnedValue.longValue());
     }
 }
