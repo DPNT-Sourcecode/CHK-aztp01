@@ -11,9 +11,6 @@ public class CheckoutSolution {
 
         for (int x = 0; x < skus.length(); x++) {
             String key = String.valueOf(skus.charAt(x));
-//            if (!basket.containsKey(key)) {
-//                basket.put(key, 0);
-//            }
 
             basket.compute(key, (k, v) ->  (v == null)? 1 : v + 1);
         }
@@ -26,13 +23,17 @@ public class CheckoutSolution {
 
             String offerItems = item.getOfferItems(itemCount);
 
-            for(int x = 0; x < offerItems.length(); x++) {
-                String key = String.valueOf(offerItems.charAt(x));
-                basket.compute(key, (k, v) -> (v == null)? 0 : v - 1);
-            }
+            applyOffer(basket, offerItems);
         }
 
         return calculateFinalPrice(basket);
+    }
+
+    private void applyOffer(Map<String, Integer> basket, String offerItems) {
+        for(int x = 0; x < offerItems.length(); x++) {
+            String key = String.valueOf(offerItems.charAt(x));
+            basket.compute(key, (k, v) -> (v == null)? 0 : v - 1);
+        }
     }
 
     private Integer calculateFinalPrice(Map<String, Integer> basket) {
