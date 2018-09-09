@@ -49,7 +49,8 @@ public class Item {
         offers.sort(Comparator.reverseOrder());
 
         for (Offer offer : offers) {
-            int onOffer = remain / offer.getOfferSize();
+
+            int onOffer = remain / (offer.getOfferSize() + (offer.getOfferItem().equals(name)? 1 : 0));
 
             for (int x = 0; x < onOffer; x++) {
                 res.append(offer.getOfferItem());

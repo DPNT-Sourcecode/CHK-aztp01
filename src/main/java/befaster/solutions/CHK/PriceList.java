@@ -33,7 +33,7 @@ public class PriceList {
         prices.put(item.getName(), item);
 
         item = new Item("F", 10);
-        item.addOffer(2,80, "F");
+        item.addOffer(2,20, "F");
 
         prices.put(item.getName(), item);
 
@@ -42,4 +42,4 @@ public class PriceList {
     public Item getItemDetails(String name) {
         return prices.get(name);
     }
-}
+}
