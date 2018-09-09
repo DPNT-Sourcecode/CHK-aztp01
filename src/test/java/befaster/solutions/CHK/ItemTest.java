@@ -17,10 +17,20 @@ public class ItemTest {
     }
 
     @Test
-    public void priceForWithOffers() {
+    public void priceForWithOneOffer() {
         test = new Item("A", 20);
         test.addOffer(2, 30);
 
         assertEquals(50, test.priceFor(3).longValue());
+    }
+
+    @Test
+    public void priceForWithMultiOffers() {
+        test = new Item("A", 20);
+        test.addOffer(2, 30);
+        test.addOffer(5, 70);
+
+        assertEquals(90, test.priceFor(6).longValue());
+        assertEquals(100, test.priceFor(7).longValue());
     }
 }
