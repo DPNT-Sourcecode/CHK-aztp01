@@ -36,4 +36,16 @@ public class CheckoutSolutionTest {
         returnedValue = test.checkout("AAEEB");
         assertEquals(180L, returnedValue.longValue());
     }
+
+    @Test
+    public void checkout2() {
+        Integer returnedValue = test.checkout("ABCDE");
+        assertEquals(155L, returnedValue.longValue());
+
+        returnedValue = test.checkout("EEEEBB");
+        assertEquals(160L, returnedValue.longValue());
+
+        returnedValue = test.checkout("BEBEEE");
+        assertEquals(160L, returnedValue.longValue());
+    }
 }
