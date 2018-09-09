@@ -33,7 +33,7 @@ public class CheckoutSolutionTest {
         returnedValue = test.checkout("AxD");
         assertEquals(-1L, returnedValue.longValue());
 
-        returnedValue = test.checkout("AAEEE");
-        assertEquals(-1L, returnedValue.longValue());
+        returnedValue = test.checkout("AAEEB");
+        assertEquals(180L, returnedValue.longValue());
     }
 }

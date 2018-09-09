@@ -28,7 +28,7 @@ public class PriceList {
         prices.put(item.getName(), item);
 
         item = new Item("E", 40);
-        item.addOffer(3,80); //3 for the price of 2, one is free
+        item.addOffer(2,40); //2 for the price of 1, one is free
 
         prices.put(item.getName(), item);
     }
