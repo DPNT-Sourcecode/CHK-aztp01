@@ -1,9 +1,22 @@
 package befaster.solutions.CHK;
 
-import befaster.runner.SolutionNotImplementedException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        throw new SolutionNotImplementedException();
+        Map<String, Integer> itemCount = new HashMap<>();
+
+        for (int x = 0; x < skus.length(); x++) {
+            itemCount.merge(String.valueOf(skus.charAt(x)), 1, (key, value) -> value++);
+        }
+
+        int sum = 0;
+
+        for (Map.Entry<String, Integer> entry : itemCount.entrySet()) {
+            sum += entry.getValue();
+        }
+
+        return sum;
     }
-}
+}
