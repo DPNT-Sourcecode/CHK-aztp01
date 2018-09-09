@@ -8,7 +8,7 @@ public class CheckoutSolution {
         Map<String, Integer> basket = new HashMap<>();
 
         for (int x = 0; x < skus.length(); x++) {
-            String key = String.valueOf(skus.charAt(x)).toUpperCase();
+            String key = String.valueOf(skus.charAt(x));
             if(!basket.containsKey(key)){
                 basket.put(key, 0);
             }
