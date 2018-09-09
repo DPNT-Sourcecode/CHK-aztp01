@@ -8,8 +8,8 @@ public class CheckoutSolution {
         Map<String, Integer> itemCount = new HashMap<>();
 
         for (int x = 0; x < skus.length(); x++) {
-            
-            itemCount.merge(String.valueOf(skus.charAt(x)), 1, (key, value) -> value = value + 1);
+
+            itemCount.merge(String.valueOf(skus.charAt(x)), 1, (key, value) -> value + 1);
         }
 
         int sum = 0;
