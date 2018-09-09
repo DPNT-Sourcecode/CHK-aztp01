@@ -16,6 +16,6 @@ public class CheckoutSolutionTest {
     @Test
     public void checkout() {
         Integer returnedValue = test.checkout("ABBACAD");
-        assertEquals(245L, returnedValue.longValue());
+        assertEquals(210L, returnedValue.longValue());
     }
 }
