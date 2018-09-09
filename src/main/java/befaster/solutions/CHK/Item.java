@@ -50,7 +50,11 @@ public class Item {
 
         for (Offer offer : offers) {
             int onOffer = remain / offer.getOfferSize();
-            res.append(offer.getOfferItem());
+
+            for (int x = 0; x < onOffer; x++) {
+                res.append(offer.getOfferItem());
+            }
+
             remain -= offer.getOfferSize() * onOffer;
         }
 
