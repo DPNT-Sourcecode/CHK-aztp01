@@ -19,9 +19,9 @@ public class CheckoutSolution {
         int sum = 0;
 
         for (Map.Entry<String, Integer> entry : itemCount.entrySet()) {
-            sum += entry.getValue();
+            sum += entry.getValue() * PriceList.valueOf(entry.getKey()).getPrice();
         }
 
         return sum;
     }
-}
+}
