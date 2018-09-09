@@ -8,14 +8,14 @@ public class PriceList {
 
     public PriceList() {
         Item item = new Item("A", 50);
-        item.addOffer(3,130);
-        item.addOffer(5,200);
+        item.addOffer(3,130, "");
+        item.addOffer(5,200, "");
 
         prices.put(item.getName(), item);
 
         item = new Item("B", 30);
-        item.addOffer(2,45);
-        item.addOffer(5,200);
+        item.addOffer(2,45, "");
+        item.addOffer(5,200, "");
 
         prices.put(item.getName(), item);
 
@@ -28,7 +28,7 @@ public class PriceList {
         prices.put(item.getName(), item);
 
         item = new Item("E", 40);
-        item.addOffer(2,40); //2 for the price of 1, one is free
+        item.addOffer(2,80, "B");
 
         prices.put(item.getName(), item);
     }
@@ -36,4 +36,4 @@ public class PriceList {
     public Item getItemDetails(String name) {
         return prices.get(name);
     }
-}
+}

@@ -23,8 +23,8 @@ public class Item {
         return price;
     }
 
-    public void addOffer(Integer size, Integer price) {
-        offers.add(new Offer(size, price));
+    public void addOffer(Integer size, Integer price, String offerItem) {
+        offers.add(new Offer(size, price, offerItem));
     }
 
     public Integer priceFor(int num) {
@@ -42,13 +42,30 @@ public class Item {
         return sum + remain * price;
     }
 
+    public String getOfferItems(int num) {
+        int remain = num;
+        StringBuffer res = new StringBuffer();
+
+        offers.sort(Comparator.reverseOrder());
+
+        for (Offer offer : offers) {
+            int onOffer = remain / offer.getOfferSize();
+            res.append(offer.getOfferItem());
+            remain -= offer.getOfferSize() * onOffer;
+        }
+
+        return res.toString();
+    }
+
     private class Offer implements Comparable<Offer> {
         private Integer offerSize;
         private Integer offerPrice;
+        private String offerItem;
 
-        Offer(Integer offerSize, Integer offerPrice) {
+        Offer(Integer offerSize, Integer offerPrice, String offerItem) {
             this.offerPrice = offerPrice;
             this.offerSize = offerSize;
+            this.offerItem = offerItem;
         }
 
         public Integer getOfferSize() {
@@ -64,6 +81,10 @@ public class Item {
         public int compareTo(Offer o) {
             return this.offerSize.compareTo(o.offerSize);
         }
+
+        public String getOfferItem() {
+            return offerItem;
+        }
     }
 
-}
+}

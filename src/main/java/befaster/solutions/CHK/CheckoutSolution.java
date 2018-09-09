@@ -11,13 +11,29 @@ public class CheckoutSolution {
 
         for (int x = 0; x < skus.length(); x++) {
             String key = String.valueOf(skus.charAt(x));
-            if (!basket.containsKey(key)) {
-                basket.put(key, 0);
-            }
+//            if (!basket.containsKey(key)) {
+//                basket.put(key, 0);
+//            }
 
-            basket.compute(key, (k, v) -> v + 1);
+            basket.compute(key, (k, v) ->  (v == null)? 1 : v + 1);
         }
 
+        for (Map.Entry<String, Integer> entry : basket.entrySet()) {
+            Item item = priceList.getItemDetails(entry.getKey());
+            Integer itemCount = entry.getValue();
+
+            String offerItems = item.getOfferItems(itemCount);
+
+            for(int x = 0; x < offerItems.length(); x++) {
+                String key = String.valueOf(offerItems.charAt(x));
+                basket.compute(key, (k, v) -> (v == null)? 0 : v - 1);
+            }
+        }
+
+        return calculateFinalPrice(basket);
+    }
+
+    private Integer calculateFinalPrice(Map<String, Integer> basket) {
         Integer sum = 0;
 
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
@@ -28,7 +44,7 @@ public class CheckoutSolution {
 
             sum += item.priceFor(itemCount);
         }
-        return sum;
 
+        return sum;
     }
-}
+}
