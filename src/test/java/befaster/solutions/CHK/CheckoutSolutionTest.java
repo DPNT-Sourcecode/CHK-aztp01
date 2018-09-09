@@ -14,13 +14,15 @@ public class CheckoutSolutionTest {
     }
 
 
+
     /*
-| A    | 50    | 3A for 130, 5A for 200 |
+    | A    | 50    | 3A for 130, 5A for 200 |
 | B    | 30    | 2B for 45              |
 | C    | 20    |                        |
 | D    | 15    |                        |
 | E    | 40    | 2E get one B free      |
- */
+| F    | 10    | 2F get one F free
+     */
 
     @Test
     public void checkout() {
@@ -47,5 +49,9 @@ public class CheckoutSolutionTest {
 
         returnedValue = test.checkout("BEBEEE");
         assertEquals(160L, returnedValue.longValue());
+
+        returnedValue = test.checkout("FFFFFF");
+        assertEquals(40L, returnedValue.longValue());
+
     }
 }

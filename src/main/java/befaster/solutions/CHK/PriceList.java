@@ -31,9 +31,15 @@ public class PriceList {
         item.addOffer(2,80, "B");
 
         prices.put(item.getName(), item);
+
+        item = new Item("F", 10);
+        item.addOffer(2,80, "F");
+
+        prices.put(item.getName(), item);
+
     }
 
     public Item getItemDetails(String name) {
         return prices.get(name);
     }
-}
+}
