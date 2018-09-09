@@ -18,15 +18,19 @@ public class CheckoutSolution {
 
         Integer sum = 0;
 
-        for (Map.Entry<String, Integer> entry : basket.entrySet()) {
-            PriceList item = PriceList.valueOf(entry.getKey());
-            Integer itemCount = entry.getValue();
-            int offerCount = itemCount / item.getOffer();
-            int nonOffer = itemCount % item.getOffer();
+        try {
+            for (Map.Entry<String, Integer> entry : basket.entrySet()) {
+                PriceList item = PriceList.valueOf(entry.getKey());
+                Integer itemCount = entry.getValue();
+                int offerCount = itemCount / item.getOffer();
+                int nonOffer = itemCount % item.getOffer();
 
-            sum += nonOffer * item.getPrice() + offerCount * item.getOfferPrice();
+                sum += nonOffer * item.getPrice() + offerCount * item.getOfferPrice();
+            }
+            return sum;
+        } catch (IllegalArgumentException e) {
+            return -1;
         }
 
-        return sum;
     }
-}
+}

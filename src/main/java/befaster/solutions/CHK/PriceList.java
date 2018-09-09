@@ -30,4 +30,4 @@ public enum PriceList {
     public int getPrice() {
         return price;
     }
-}
+}
