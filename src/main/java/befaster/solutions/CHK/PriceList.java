@@ -1,33 +1,39 @@
 package befaster.solutions.CHK;
 
-public enum PriceList {
-    A(50, 3, 130),
-    B(30, 2, 45),
-    C(20, 1, 20),
-    D(15, 1, 15);
+import java.util.HashMap;
+import java.util.Map;
 
-    private int price;
+public class PriceList {
+    private Map<String, Item> prices = new HashMap<>();
 
-    private int offer;
+    public PriceList() {
+        Item item = new Item("A", 50);
+        item.addOffer(3,130);
+        item.addOffer(5,200);
 
-    private int offerPrice;
+        prices.put(item.getName(), item);
 
-    PriceList(int price, int offer, int offerPrice) {
-        this.price = price;
-        this.offer = offer;
-        this.offerPrice = offerPrice;
+        item = new Item("B", 30);
+        item.addOffer(2,45);
+        item.addOffer(5,200);
 
+        prices.put(item.getName(), item);
+
+        item = new Item("C", 20);
+
+        prices.put(item.getName(), item);
+
+        item = new Item("D", 15);
+
+        prices.put(item.getName(), item);
+
+        item = new Item("E", 40);
+        item.addOffer(3,80); //3 for the price of 2, one is free
+
+        prices.put(item.getName(), item);
     }
 
-    public int getOffer() {
-        return offer;
+    public Item getItemDetails(String name) {
+        return prices.get(name);
     }
-
-    public int getOfferPrice() {
-        return offerPrice;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-}
+}

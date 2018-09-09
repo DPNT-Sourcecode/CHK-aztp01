@@ -13,6 +13,15 @@ public class CheckoutSolutionTest {
         test = new CheckoutSolution();
     }
 
+
+    /*
+| A    | 50    | 3A for 130, 5A for 200 |
+| B    | 30    | 2B for 45              |
+| C    | 20    |                        |
+| D    | 15    |                        |
+| E    | 40    | 2E get one B free      |
+ */
+
     @Test
     public void checkout() {
         Integer returnedValue = test.checkout("ABBACAD");
@@ -22,6 +31,9 @@ public class CheckoutSolutionTest {
         assertEquals(-1L, returnedValue.longValue());
 
         returnedValue = test.checkout("AxD");
+        assertEquals(-1L, returnedValue.longValue());
+
+        returnedValue = test.checkout("AAEEE");
         assertEquals(-1L, returnedValue.longValue());
     }
 }
