@@ -22,6 +22,8 @@ public class CheckoutSolution {
             Item item = priceList.getItemDetails(entry.getKey());
             Integer itemCount = entry.getValue();
 
+            if (item == null) return -1;
+
             String offerItems = item.getOfferItems(itemCount);
 
             for(int x = 0; x < offerItems.length(); x++) {
