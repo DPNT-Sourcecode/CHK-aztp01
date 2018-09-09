@@ -32,5 +32,6 @@ public class ItemTest {
 
         assertEquals(90, test.priceFor(6).longValue());
         assertEquals(100, test.priceFor(7).longValue());
+        assertEquals(120, test.priceFor(8).longValue());
     }
 }

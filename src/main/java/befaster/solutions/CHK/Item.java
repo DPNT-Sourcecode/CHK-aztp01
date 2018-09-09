@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,7 +32,9 @@ public class Item {
         int remain  = num;
         Integer sum = 0;
 
-        Collections.sort(offers);
+        offers.sort(Comparator.reverseOrder());
+//        Collections.sort(offers);
+//        Collections.reverse(offers);
 
         for(Offer offer : offers) {
             int onOffer = remain / offer.getOfferSize();
@@ -66,4 +69,4 @@ public class Item {
         }
     }
 
-}
+}
