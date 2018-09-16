@@ -1,14 +1,19 @@
 package befaster.solutions.CHK;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
 @Entity
 public class Item {
+    @Id
     private String name;
     private Integer price;
+
+    @OneToMany
     private List<Offer> offers;
 
     public Item(String name, Integer price) {

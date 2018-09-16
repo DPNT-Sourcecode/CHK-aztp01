@@ -11,7 +11,7 @@ public class CheckoutSolution {
 
     public CheckoutSolution() {
         emf = Persistence.createEntityManagerFactory("CheckoutPrices");
-        
+
     }
     public Integer checkout(String skus) {
         Map<String, Integer> basket = new HashMap<>();
@@ -57,4 +57,4 @@ public class CheckoutSolution {
 
         return sum;
     }
-}
+}
