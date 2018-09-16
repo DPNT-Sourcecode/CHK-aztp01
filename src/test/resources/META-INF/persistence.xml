@@ -4,6 +4,8 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="CheckoutPrices">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>befaster.solutions.CHK.Item</class>
+        <class>befaster.solutions.CHK.Offer</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
