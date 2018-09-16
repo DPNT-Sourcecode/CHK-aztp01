@@ -42,8 +42,9 @@
             <version>18.0</version>
         </dependency>
         <dependency>
-            <groupId></groupId>
-            <artifactId>hibernate</artifactId>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.0.2.Final</version>
         </dependency>
 
         <dependency>

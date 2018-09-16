@@ -1,9 +1,11 @@
 package befaster.solutions.CHK;
 
+import javax.persistence.Entity;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+@Entity
 public class Item {
     private String name;
     private Integer price;
@@ -62,34 +64,7 @@ public class Item {
         return res.toString();
     }
 
-    private class Offer implements Comparable<Offer> {
-        private Integer offerSize;
-        private Integer offerPrice;
-        private String offerItem;
-
-        Offer(Integer offerSize, Integer offerPrice, String offerItem) {
-            this.offerPrice = offerPrice;
-            this.offerSize = offerSize;
-            this.offerItem = offerItem;
-        }
-
-        public Integer getOfferSize() {
-            return offerSize;
-        }
-
-        public Integer getOfferPrice() {
-            return offerPrice;
-        }
 
 
-        @Override
-        public int compareTo(Offer o) {
-            return this.offerSize.compareTo(o.offerSize);
-        }
 
-        public String getOfferItem() {
-            return offerItem;
-        }
-    }
-
-}
+}
