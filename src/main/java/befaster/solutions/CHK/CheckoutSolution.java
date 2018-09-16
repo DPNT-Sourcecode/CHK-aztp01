@@ -1,25 +1,25 @@
 package befaster.solutions.CHK;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CheckoutSolution {
-    //private PriceList priceList = new PriceList(); //Depencedency injection... DB access point in the future
+
     private EntityManager em;
 
     public CheckoutSolution() {
         em = Persistence.createEntityManagerFactory("CheckoutPrices").createEntityManager();
     }
+
     public Integer checkout(String skus) {
         Map<String, Integer> basket = new HashMap<>();
 
         for (int x = 0; x < skus.length(); x++) {
             String key = String.valueOf(skus.charAt(x));
 
-            basket.compute(key, (k, v) ->  (v == null)? 1 : v + 1);
+            basket.compute(key, (k, v) -> (v == null) ? 1 : v + 1);
         }
 
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
@@ -37,9 +37,9 @@ public class CheckoutSolution {
     }
 
     private void applyOffer(Map<String, Integer> basket, String offerItems) {
-        for(int x = 0; x < offerItems.length(); x++) {
+        for (int x = 0; x < offerItems.length(); x++) {
             String key = String.valueOf(offerItems.charAt(x));
-            basket.compute(key, (k, v) -> (v == null)? 0 : v - 1);
+            basket.compute(key, (k, v) -> (v == null) ? 0 : v - 1);
         }
     }
 
