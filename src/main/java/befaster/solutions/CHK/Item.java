@@ -11,7 +11,7 @@ public class Item {
     private String name;
     private Integer price;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "item")
     private List<Offer> offers;
 
