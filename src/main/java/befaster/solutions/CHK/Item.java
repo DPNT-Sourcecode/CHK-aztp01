@@ -1,8 +1,6 @@
 package befaster.solutions.CHK;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +11,8 @@ public class Item {
     private String name;
     private Integer price;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "item")
     private List<Offer> offers;
 
     public Item(String name, Integer price) {

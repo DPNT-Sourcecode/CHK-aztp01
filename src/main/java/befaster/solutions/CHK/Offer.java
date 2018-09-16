@@ -8,10 +8,11 @@ public class Offer implements Comparable<Offer> {
     @Id
     private Long id;
 
+    private String item;
+
     private Integer offerSize;
     private Integer offerPrice;
     private String offerItem;
-
     Offer(Integer offerSize, Integer offerPrice, String offerItem) {
         this.offerPrice = offerPrice;
         this.offerSize = offerSize;
@@ -31,6 +32,14 @@ public class Offer implements Comparable<Offer> {
 
     public void setOfferItem(String offerItem) {
         this.offerItem = offerItem;
+    }
+
+    public String getItem() {
+        return item;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
     }
 
 
