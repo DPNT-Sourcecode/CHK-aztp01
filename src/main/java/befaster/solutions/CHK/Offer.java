@@ -1,6 +1,5 @@
 package befaster.solutions.CHK;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,12 +8,11 @@ public class Offer implements Comparable<Offer> {
     @Id
     private Long id;
 
-    @Column(name = "item")
     private String item;
-
     private Integer offerSize;
     private Integer offerPrice;
     private String offerItem;
+
     Offer(Integer offerSize, Integer offerPrice, String offerItem) {
         this.offerPrice = offerPrice;
         this.offerSize = offerSize;
@@ -22,18 +20,6 @@ public class Offer implements Comparable<Offer> {
     }
 
     public Offer() {
-    }
-
-    public void setOfferSize(Integer offerSize) {
-        this.offerSize = offerSize;
-    }
-
-    public void setOfferPrice(Integer offerPrice) {
-        this.offerPrice = offerPrice;
-    }
-
-    public void setOfferItem(String offerItem) {
-        this.offerItem = offerItem;
     }
 
     public String getItem() {
@@ -44,17 +30,28 @@ public class Offer implements Comparable<Offer> {
         this.item = item;
     }
 
-
     public Integer getOfferSize() {
         return offerSize;
+    }
+
+    public void setOfferSize(Integer offerSize) {
+        this.offerSize = offerSize;
     }
 
     public Integer getOfferPrice() {
         return offerPrice;
     }
 
+    public void setOfferPrice(Integer offerPrice) {
+        this.offerPrice = offerPrice;
+    }
+
     public String getOfferItem() {
         return offerItem;
+    }
+
+    public void setOfferItem(String offerItem) {
+        this.offerItem = offerItem;
     }
 
     @Override

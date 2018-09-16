@@ -12,7 +12,6 @@ public class Item {
     private Integer price;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "item")
     private List<Offer> offers;
 
     public Item(String name, Integer price) {
