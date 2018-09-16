@@ -11,7 +11,7 @@ public class Item {
     private String name;
     private Integer price;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
     private List<Offer> offers;
 
     public Item(String name, Integer price) {
