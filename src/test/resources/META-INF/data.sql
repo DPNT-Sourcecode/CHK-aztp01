@@ -1,7 +1,6 @@
 INSERT INTO Item (name, price) VALUES ('A', 50);
-INSERT INTO Offer (item, offerSize, offerPrice, item) VALUES (1, "A", 3, 130, "");
-INSERT INTO Offer (item, offerSize, offerPrice, item) VALUES (2, "A", 5, 200, "");
-
+INSERT INTO Offer (id, item, offer_size, offer_price, offer_item) VALUES (1, 'A', 3, 130, '');
+INSERT INTO Offer (id, item, offer_size, offer_price, offer_item) VALUES (2, 'A', 5, 200, '');
 INSERT INTO Item (name, price) VALUES ('B', 30);
 
 INSERT INTO Item (name, price) VALUES ('C', 20);
