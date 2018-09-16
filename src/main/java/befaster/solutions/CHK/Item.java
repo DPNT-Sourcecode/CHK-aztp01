@@ -22,6 +22,9 @@ public class Item {
         this.offers = new LinkedList<>();
     }
 
+    public Item() {
+    }
+
     public String getName() {
         return name;
     }
@@ -72,4 +75,4 @@ public class Item {
 
 
 
-}
+}
