@@ -1,17 +1,17 @@
 package befaster.solutions.CHK;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CheckoutSolution {
-    private PriceList priceList = new PriceList(); //Depencedency injection... DB access point in the future
-    private  EntityManagerFactory emf;
+    //private PriceList priceList = new PriceList(); //Depencedency injection... DB access point in the future
+    private EntityManager em;
 
     public CheckoutSolution() {
-        emf = Persistence.createEntityManagerFactory("CheckoutPrices");
-
+        em = Persistence.createEntityManagerFactory("CheckoutPrices").createEntityManager();
     }
     public Integer checkout(String skus) {
         Map<String, Integer> basket = new HashMap<>();
@@ -23,7 +23,7 @@ public class CheckoutSolution {
         }
 
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
-            Item item = priceList.getItemDetails(entry.getKey());
+            Item item = em.find(Item.class, entry.getKey()); //priceList.getItemDetails(entry.getKey());
             Integer itemCount = entry.getValue();
 
             if (item == null) return -1;
@@ -47,7 +47,7 @@ public class CheckoutSolution {
         Integer sum = 0;
 
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
-            Item item = priceList.getItemDetails(entry.getKey());
+            Item item = em.find(Item.class, entry.getKey()); //priceList.getItemDetails(entry.getKey());
             Integer itemCount = entry.getValue();
 
             if (item == null) return -1;
