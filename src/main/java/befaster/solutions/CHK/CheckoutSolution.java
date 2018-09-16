@@ -1,11 +1,18 @@
 package befaster.solutions.CHK;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CheckoutSolution {
     private PriceList priceList = new PriceList(); //Depencedency injection... DB access point in the future
+    private  EntityManagerFactory emf;
 
+    public CheckoutSolution() {
+        emf = Persistence.createEntityManagerFactory("CheckoutPrices");
+        
+    }
     public Integer checkout(String skus) {
         Map<String, Integer> basket = new HashMap<>();
 
