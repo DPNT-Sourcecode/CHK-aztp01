@@ -44,16 +44,18 @@ public class Offer implements Comparable<Offer> {
         for(Item item : items) {
             Integer itemCount = basket.get(item.getName());
             if (itemCount != null && itemCount > 0) {
-                int offerCount = itemCount / offerSize;
+                int offerCount = itemCount / (offerSize + (offerItem.equals(item.getName())?1:0));
+
+                if(!offerItem.equals("")) {
+                    basket.compute(offerItem, (k, v) -> (v == null || v < 1) ? 0 : v - offerCount);
+                }
+
                 int offeredItems = offerSize * offerCount;
 
                 finalPrice += offerCount * offerPrice;
                 itemCount -= offeredItems;
 
                 basket.replace(item.getName(), itemCount);
-                if(!offerItem.equals("")) {
-                    basket.compute(offerItem, (k, v) -> (v == null || v < 1) ? 0 : v - 1);
-                }
             }
         }
 
