@@ -41,7 +41,7 @@ public class Item {
 
         offers.sort(Comparator.reverseOrder());
 
-        for (Offer offer : offers) {
+        for (Offer offer : getOffers()) {
             int onOffer = remain / offer.getOfferSize();
             sum += onOffer * offer.getOfferPrice();
             remain -= offer.getOfferSize() * onOffer;
@@ -50,13 +50,16 @@ public class Item {
         return sum + remain * price;
     }
 
+    public List<Offer> getOffers() {
+        offers.sort(Comparator.reverseOrder());
+        return offers;
+    }
+
     public String getOfferItems(int num) {
         int remain = num;
         StringBuffer res = new StringBuffer();
 
-        offers.sort(Comparator.reverseOrder());
-
-        for (Offer offer : offers) {
+        for (Offer offer : getOffers()) {
 
             int onOffer = remain / (offer.getOfferSize() + (offer.getOfferItem().equals(name)? 1 : 0));
 
