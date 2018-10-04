@@ -60,7 +60,7 @@ INSERT INTO Item (name, price) VALUES ('R', 50);
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (12, 3, 150, 'Q');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('R', 12);
 
-INSERT INTO Item (name, price) VALUES ('S', 30);
+INSERT INTO Item (name, price) VALUES ('S', 20);
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (100, 3, 45, '');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('S', 100);
 -- add group offer
