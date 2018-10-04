@@ -1,7 +1,9 @@
 package befaster.solutions.CHK;
 
 import javax.persistence.*;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 public class Offer implements Comparable<Offer> {
@@ -20,13 +22,36 @@ public class Offer implements Comparable<Offer> {
     @Column(name = "OFFER_ITEM")
     private String offerItem;
 
+    public Offer() {
+    }
+
     Offer(Integer offerSize, Integer offerPrice, String offerItem) {
         this.offerPrice = offerPrice;
         this.offerSize = offerSize;
         this.offerItem = offerItem;
     }
 
-    public Offer() {
+    public Integer applyOffer(Map<String, Integer> basket) {
+        int finalPrice = 0;
+        //int notAccounted = 0;
+
+        //items.sort(Comparator.comparingInt(Item::getPrice));
+
+        for(Item item : items) {
+            Integer itemCount = basket.get(item.getName());
+            if (itemCount != null && itemCount > 0) {
+                int offerCount = itemCount / offerSize;
+
+                finalPrice += offerCount * offerPrice;
+                itemCount -= offerCount;
+
+                basket.replace(item.getName(), itemCount);
+                basket.compute(offerItem, (k, v) -> (v == null || v < offerCount) ? 0 : v - offerCount);
+            }
+        }
+
+
+        return finalPrice;
     }
 
     public List<Item> getItems() {

@@ -3,6 +3,7 @@ package befaster.solutions.CHK;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CheckoutSolution {
@@ -22,18 +23,25 @@ public class CheckoutSolution {
             basket.compute(key, (k, v) -> (v == null) ? 1 : v + 1);
         }
 
+        Integer finalPrice = 0;
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
             Item item = em.find(Item.class, entry.getKey()); //priceList.getItemDetails(entry.getKey());
             Integer itemCount = entry.getValue();
 
             if (item == null) return -1;
 
-            String offerItems = item.getOfferItems(itemCount);
+            List<Offer> offers = item.getOffers();
 
-            applyOffer(basket, offerItems);
+            for(Offer offer : offers) {
+                finalPrice += offer.applyOffer(basket);
+            }
+
+            //String offerItems = item.getOfferItems(itemCount);
+
+            //applyOffer(basket, offerItems);
         }
 
-        return calculateFinalPrice(basket);
+        return finalPrice + calculateFinalPrice(basket);
     }
 
     private void applyOffer(Map<String, Integer> basket, String offerItems) {
