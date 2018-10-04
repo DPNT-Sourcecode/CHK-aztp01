@@ -3,10 +3,14 @@ INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (1, 3, 130, '
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (2, 5, 200, '');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('A', 1)
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('A', 2)
+INSERT INTO Offer_Item (Offer_id, items_name) VALUES (2, 'A')
+INSERT INTO Offer_Item (Offer_id, items_name) VALUES (1, 'A')
+
 
 INSERT INTO Item (name, price) VALUES ('B', 30);
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (3, 2, 45, '');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('B', 3)
+INSERT INTO Offer_Item (Offer_id, items_name) VALUES (3, 'B')
 
 INSERT INTO Item (name, price) VALUES ('C', 20);
 
@@ -15,10 +19,12 @@ INSERT INTO Item (name, price) VALUES ('D', 15);
 INSERT INTO Item (name, price) VALUES ('E', 40);
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (4, 2, 80, 'B');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('E', 4)
+INSERT INTO Offer_Item (Offer_id, items_name) VALUES (4, 'E')
 
 INSERT INTO Item (name, price) VALUES ('F', 10);
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (5, 2, 20, 'F');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('F', 5);
+INSERT INTO Offer_Item (Offer_id, items_name) VALUES (5, 'F')
 
 INSERT INTO Item (name, price) VALUES ('G', 20);
 
@@ -27,6 +33,8 @@ INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (6, 5, 45, ''
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (7, 10, 80, '');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('H', 6);
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('H', 7);
+INSERT INTO Offer_Item (Offer_id, items_name) VALUES (7, 'H')
+INSERT INTO Offer_Item (Offer_id, items_name) VALUES (6, 'H')
 
 INSERT INTO Item (name, price) VALUES ('I', 35);
 
@@ -35,6 +43,7 @@ INSERT INTO Item (name, price) VALUES ('J', 60);
 INSERT INTO Item (name, price) VALUES ('K', 70);
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (8, 2, 120, '');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('K', 8);
+INSERT INTO Offer_Item (Offer_id, items_name) VALUES (8, 'K')
 
 INSERT INTO Item (name, price) VALUES ('L', 90);
 
@@ -43,6 +52,7 @@ INSERT INTO Item (name, price) VALUES ('M', 15);
 INSERT INTO Item (name, price) VALUES ('N', 40);
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (9, 3, 120, 'M');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('N', 9);
+INSERT INTO Offer_Item (Offer_id, items_name) VALUES (9, 'N')
 
 INSERT INTO Item (name, price) VALUES ('O', 10);
 
