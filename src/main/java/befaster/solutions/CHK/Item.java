@@ -11,7 +11,12 @@ public class Item {
     private String name;
     private Integer price;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(
+            name="Item_Offer",
+            joinColumns={@JoinColumn(name="Item_name", referencedColumnName="name")},
+            inverseJoinColumns={@JoinColumn(name="offers_id", referencedColumnName="id")}
+           )
     private List<Offer> offers;
 
     public Item(String name, Integer price) {

@@ -10,9 +10,9 @@ public class Offer implements Comparable<Offer> {
 
     @ManyToMany
     @JoinTable(
-            name="ITEM_OFFER",
-            joinColumns={@JoinColumn(name="PROJECT_PROJECTID", referencedColumnName="PROJECTID")},
-            inverseJoinColumns={@JoinColumn(name="EMPLOYEE_EMPLOYEEID", referencedColumnName="EMPLOYEEID")})
+            name="Item_Offer",
+            joinColumns={@JoinColumn(name="offers_id", referencedColumnName="id")},
+            inverseJoinColumns={@JoinColumn(name="Item_name", referencedColumnName="name")})
     private List<Item> items;
 
     @Column(name = "OFFER_SIZE")
