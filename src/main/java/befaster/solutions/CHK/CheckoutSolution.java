@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ public class CheckoutSolution {
 
     public Integer checkout(String skus) {
         Map<String, Integer> basket = new HashMap<>();
+        Map<String, Integer> remaim = basket.;
 
         for (int x = 0; x < skus.length(); x++) {
             String key = String.valueOf(skus.charAt(x));
