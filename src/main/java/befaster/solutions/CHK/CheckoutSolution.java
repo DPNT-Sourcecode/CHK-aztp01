@@ -17,7 +17,7 @@ public class CheckoutSolution {
 
     public Integer checkout(String skus) {
         Map<String, Integer> basket = new HashMap<>();
-        Map<String, Integer> remaim = basket.;
+        Map<String, Integer> remain = new HashMap<>(basket);
 
         for (int x = 0; x < skus.length(); x++) {
             String key = String.valueOf(skus.charAt(x));
@@ -35,7 +35,7 @@ public class CheckoutSolution {
             List<Offer> offers = item.getOffers();
 
             for(Offer offer : offers) {
-                finalPrice += offer.applyOffer(basket);
+                finalPrice += offer.applyOffer(remain);
             }
 
             //String offerItems = item.getOfferItems(itemCount);
@@ -43,7 +43,7 @@ public class CheckoutSolution {
             //applyOffer(basket, offerItems);
         }
 
-        return finalPrice + calculateFinalPrice(basket);
+        return finalPrice + calculateFinalPrice(remain);
     }
 
     private void applyOffer(Map<String, Integer> basket, String offerItems) {
