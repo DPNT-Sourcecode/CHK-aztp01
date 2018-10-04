@@ -37,25 +37,29 @@ public class Offer implements Comparable<Offer> {
         //List<Item> copy = new ArrayList<>();
         //Collections.copy(items, copy);
         int finalPrice = 0;
-        int notAccounted = 0;
+        List<Item> remains = new ArrayList<>();
 
         items.sort(Comparator.comparingInt(Item::getPrice));
 
         for(Item item : items) {
             Integer itemCount = basket.get(item.getName());
             if (itemCount != null && itemCount > 0) {
-                int offerCount = itemCount / (offerSize + (offerItem.equals(item.getName())?1:0));
+                int offerCount = (itemCount+remains.size()) / (offerSize + (offerItem.equals(item.getName())?1:0));
 
-                if(!offerItem.equals("")) {
+                if(!offerItem.equals("")) { //Remove free items
                     basket.compute(offerItem, (k, v) -> (v == null || v < 1) ? 0 : v - offerCount);
                 }
 
-                int offeredItems = offerSize * offerCount;
-
                 finalPrice += offerCount * offerPrice;
-                itemCount = basket.get(item.getName()) - offeredItems;
 
-                basket.replace(item.getName(), itemCount);
+                int offeredItems = (offerSize * offerCount) - remains.size();
+
+
+                for(int x = 0; x<itemCount; x++){
+                    remains.add(item); //create a list of items that can still make a group offer
+                }
+
+                basket.compute(item.getName(), (k, v) -> v - offeredItems);
             }
         }
 
