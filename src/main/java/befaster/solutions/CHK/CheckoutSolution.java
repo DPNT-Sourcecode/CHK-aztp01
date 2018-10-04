@@ -2,10 +2,7 @@ package befaster.solutions.CHK;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CheckoutSolution {
 
@@ -28,21 +25,24 @@ public class CheckoutSolution {
         Map<String, Integer> remain = new HashMap<>(basket);
 
         Integer finalPrice = 0;
+        List<Offer> offers = new ArrayList<>();
+
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
             Item item = em.find(Item.class, entry.getKey()); //priceList.getItemDetails(entry.getKey());
             Integer itemCount = entry.getValue();
 
             if (item == null) return -1;
 
-            List<Offer> offers = item.getOffers();
-
-            for(Offer offer : offers) {
-                finalPrice += offer.applyOffer(remain);
-            }
+            offers.addAll(item.getOffers());
 
             //String offerItems = item.getOfferItems(itemCount);
 
             //applyOffer(basket, offerItems);
+        }
+
+        offers.sort((o1, o2) -> (o1.getOfferItem().equals(""))? 9: (o1.getOfferSize() - o2.getOfferSize()));
+        for(Offer offer : offers) {
+            finalPrice += offer.applyOffer(remain);
         }
 
         return finalPrice + calculateFinalPrice(remain);
