@@ -53,7 +53,7 @@ public class Offer implements Comparable<Offer> {
                 int offeredItems = offerSize * offerCount;
 
                 finalPrice += offerCount * offerPrice;
-                itemCount -= offeredItems;
+                itemCount = basket.get(item.getName()) - offeredItems;
 
                 basket.replace(item.getName(), itemCount);
             }
