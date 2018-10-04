@@ -8,7 +8,11 @@ public class Offer implements Comparable<Offer> {
     @Id
     private Long id;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(
+            name="ITEM_OFFER",
+            joinColumns={@JoinColumn(name="PROJECT_PROJECTID", referencedColumnName="PROJECTID")},
+            inverseJoinColumns={@JoinColumn(name="EMPLOYEE_EMPLOYEEID", referencedColumnName="EMPLOYEEID")})
     private List<Item> items;
 
     @Column(name = "OFFER_SIZE")
