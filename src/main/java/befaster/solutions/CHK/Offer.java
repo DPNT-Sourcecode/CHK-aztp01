@@ -42,24 +42,34 @@ public class Offer implements Comparable<Offer> {
         items.sort(Comparator.comparingInt(Item::getPrice));
 
         for(Item item : items) {
-            Integer itemCount = basket.get(item.getName());
+            String itemId = item.getName();
+            Integer itemCount = basket.get(itemId);
             if (itemCount != null && itemCount > 0) {
-                int offerCount = (itemCount+remains.size()) / (offerSize + (offerItem.equals(item.getName())?1:0));
+                int offerCount = (itemCount+remains.size()) / (offerSize + (offerItem.equals(itemId)?1:0));
+                if(offerCount > 0 ) {
 
-                if(!offerItem.equals("")) { //Remove free items
-                    basket.compute(offerItem, (k, v) -> (v == null || v < 1) ? 0 : v - offerCount);
+                    if (!offerItem.equals("")) { //Remove free items
+                        basket.compute(offerItem, (k, v) -> (v == null || v < 1) ? 0 : v - offerCount);
+                    }
+
+                    finalPrice += offerCount * offerPrice;
+
+                    int offeredItems = (offerSize * offerCount) - remains.size();
+
+                    basket.compute(itemId, (k, v) -> v - offeredItems);
+
+                    for (int x = 0; x < remains.size(); x++) {
+                        Item removableItem = remains.get(x);
+                        basket.compute(removableItem.getName(), (k, v) -> v - 1);
+                    }
+
+                    remains.clear();
+
+                    for (int x = 0; x < basket.get(itemId); x++) {
+                        remains.add(item); //create a list of items that can still make a group offer
+                    }
+
                 }
-
-                finalPrice += offerCount * offerPrice;
-
-                int offeredItems = (offerSize * offerCount) - remains.size();
-
-
-                for(int x = 0; x<itemCount; x++){
-                    remains.add(item); //create a list of items that can still make a group offer
-                }
-
-                basket.compute(item.getName(), (k, v) -> v - offeredItems);
             }
         }
 
