@@ -3,13 +3,16 @@ package befaster.solutions.CHK;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Entity
 public class Offer implements Comparable<Offer> {
     @Id
     private Long id;
 
-    private String item;
+    @ManyToMany
+    private List<Item> items;
 
     @Column(name = "OFFER_SIZE")
     private Integer offerSize;
@@ -27,12 +30,12 @@ public class Offer implements Comparable<Offer> {
     public Offer() {
     }
 
-    public String getItem() {
-        return item;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public void setItem(List<Item> items) {
+        this.items = items;
     }
 
     public Integer getOfferSize() {

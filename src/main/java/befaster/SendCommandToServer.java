@@ -41,7 +41,7 @@ public class SendCommandToServer {
      *   |  6.  | Observe output, check for failed requests.                  |
      *   |  7.  | If passed, go to step 3.                                    |
      *   +------+-------------------------------------------------------------+
-     *
+     *co
      *   You are encouraged to change this project as you please:
      *        * You can use your preferred libraries.
      *        * You can use your own test framework.
@@ -66,4 +66,4 @@ public class SendCommandToServer {
                 .start();
     }
 
-}
+}
