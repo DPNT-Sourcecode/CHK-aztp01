@@ -13,17 +13,6 @@ public class CheckoutSolutionTest {
         test = new CheckoutSolution();
     }
 
-
-
-    /*
-    | A    | 50    | 3A for 130, 5A for 200 |
-| B    | 30    | 2B for 45              |
-| C    | 20    |                        |
-| D    | 15    |                        |
-| E    | 40    | 2E get one B free      |
-| F    | 10    | 2F get one F free
-     */
-
     @Test
     public void checkout() {
         Integer returnedValue = test.checkout("ABBACAD");

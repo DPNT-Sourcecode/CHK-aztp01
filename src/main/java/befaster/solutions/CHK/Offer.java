@@ -34,10 +34,10 @@ public class Offer implements Comparable<Offer> {
     }
 
     public Integer applyOffer(Map<String, Integer> basket) {
-        List<Item> copy = new ArrayList<>();
+        //List<Item> copy = new ArrayList<>();
         //Collections.copy(items, copy);
         int finalPrice = 0;
-        //int notAccounted = 0;
+        int notAccounted = 0;
 
         items.sort(Comparator.comparingInt(Item::getPrice));
 
