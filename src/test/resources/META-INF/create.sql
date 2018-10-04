@@ -1,2 +1,3 @@
-CREATE TABLE ITEM("NAME" VARCHAR(1) NOT NULL PRIMARY KEY, "PRICE" INTEGER)
-CREATE TABLE OFFER("ID" INTEGER NOT NULL PRIMARY KEY, "ITEM" VARCHAR (1) FOREIGN KEY REFERENCES ITEM(NAME), "OFFER_SIZE" INTEGER, "OFFER_PRICE" INTEGER, OFFER_ITEM VARCHAR(1))
+create table Item (name varchar(255) not null, price integer, primary key (name))
+create table Item_Offer (Item_name varchar(255) not null, offers_id bigint not null)
+create table Offer (id bigint not null, OFFER_ITEM varchar(255), OFFER_PRICE integer, OFFER_SIZE integer, primary key (id))
