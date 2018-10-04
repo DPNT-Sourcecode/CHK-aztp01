@@ -1,9 +1,6 @@
 package befaster.solutions.CHK;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -11,13 +8,15 @@ public class Offer implements Comparable<Offer> {
     @Id
     private Long id;
 
-    @ManyToMany
+    @OneToMany
     private List<Item> items;
 
     @Column(name = "OFFER_SIZE")
     private Integer offerSize;
+
     @Column(name = "OFFER_PRICE")
     private Integer offerPrice;
+
     @Column(name = "OFFER_ITEM")
     private String offerItem;
 

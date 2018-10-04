@@ -11,7 +11,7 @@ public class Item {
     private String name;
     private Integer price;
 
-    @ManyToMany
+    @OneToMany
     private List<Offer> offers;
 
     public Item(String name, Integer price) {
@@ -73,4 +73,4 @@ public class Item {
 
 
 
-}
+}
