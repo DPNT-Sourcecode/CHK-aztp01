@@ -17,7 +17,7 @@ public class CheckoutSolution {
 
     public Integer checkout(String skus) {
         Map<String, Integer> basket = new HashMap<>();
-        Map<String, Integer> remain = new HashMap<>(basket);
+
 
         for (int x = 0; x < skus.length(); x++) {
             String key = String.valueOf(skus.charAt(x));
@@ -25,6 +25,8 @@ public class CheckoutSolution {
             basket.compute(key, (k, v) -> (v == null) ? 1 : v + 1);
         }
 
+        Map<String, Integer> remain = new HashMap<>(basket);
+        
         Integer finalPrice = 0;
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
             Item item = em.find(Item.class, entry.getKey()); //priceList.getItemDetails(entry.getKey());
