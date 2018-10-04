@@ -32,8 +32,8 @@ INSERT INTO Item (name, price) VALUES ('I', 35);
 
 INSERT INTO Item (name, price) VALUES ('J', 60);
 
-INSERT INTO Item (name, price) VALUES ('K', 80);
-INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (8, 2, 150, '');
+INSERT INTO Item (name, price) VALUES ('K', 70);
+INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (8, 2, 120, '');
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('K', 8);
 
 INSERT INTO Item (name, price) VALUES ('L', 90);
@@ -59,8 +59,10 @@ INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (12, 3, 150, 
 INSERT INTO Item_Offer (item_name, offers_id) VALUES ('R', 12);
 
 INSERT INTO Item (name, price) VALUES ('S', 30);
+-- add group offer
 
 INSERT INTO Item (name, price) VALUES ('T', 20);
+-- add group offer
 
 INSERT INTO Item (name, price) VALUES ('U', 40);
 INSERT INTO Offer (id, offer_size, offer_price, offer_item) VALUES (13, 3, 120, 'U');
@@ -74,8 +76,11 @@ INSERT INTO Item_Offer (item_name, offers_id) VALUES ('V', 15);
 
 INSERT INTO Item (name, price) VALUES ('W', 20);
 
-INSERT INTO Item (name, price) VALUES ('X', 90);
+INSERT INTO Item (name, price) VALUES ('X', 17);
+--  add group offer
 
-INSERT INTO Item (name, price) VALUES ('Y', 10);
+INSERT INTO Item (name, price) VALUES ('Y', 20);
+-- add group offer
 
-INSERT INTO Item (name, price) VALUES ('Z', 50);
+INSERT INTO Item (name, price) VALUES ('Z', 21);
+-- add group offer
