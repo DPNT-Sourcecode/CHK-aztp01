@@ -50,7 +50,9 @@ public class Offer implements Comparable<Offer> {
                 itemCount -= offerCount;
 
                 basket.replace(item.getName(), itemCount);
-                basket.compute(offerItem, (k, v) -> (v == null || v < offerCount) ? 0 : v - offerCount);
+                if(!offerItem.equals("")) {
+                    basket.compute(offerItem, (k, v) -> (v == null || v < offerCount) ? 0 : v - offerCount);
+                }
             }
         }
 
