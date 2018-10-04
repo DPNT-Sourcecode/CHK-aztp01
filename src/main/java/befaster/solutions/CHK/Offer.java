@@ -52,7 +52,7 @@ public class Offer implements Comparable<Offer> {
 
                 basket.replace(item.getName(), itemCount);
                 if(!offerItem.equals("")) {
-                    basket.compute(offerItem, (k, v) -> (v == null || v < offeredItems) ? 0 : v - offeredItems);
+                    basket.compute(offerItem, (k, v) -> (v == null || v < 1) ? 0 : v - 1);
                 }
             }
         }
