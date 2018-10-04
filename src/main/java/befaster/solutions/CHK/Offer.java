@@ -39,7 +39,7 @@ public class Offer implements Comparable<Offer> {
         int finalPrice = 0;
         //int notAccounted = 0;
 
-        //items.sort(Comparator.comparingInt(Item::getPrice));
+        items.sort(Comparator.comparingInt(Item::getPrice));
 
         for(Item item : items) {
             Integer itemCount = basket.get(item.getName());

@@ -26,7 +26,7 @@ public class CheckoutSolution {
         }
 
         Map<String, Integer> remain = new HashMap<>(basket);
-        
+
         Integer finalPrice = 0;
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
             Item item = em.find(Item.class, entry.getKey()); //priceList.getItemDetails(entry.getKey());
