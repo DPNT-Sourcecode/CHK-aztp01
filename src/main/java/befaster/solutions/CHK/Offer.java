@@ -34,8 +34,6 @@ public class Offer implements Comparable<Offer> {
     }
 
     public Integer applyOffer(Map<String, Integer> basket) {
-        //List<Item> copy = new ArrayList<>();
-        //Collections.copy(items, copy);
         int finalPrice = 0;
         List<Item> remains = new ArrayList<>();
 
@@ -64,11 +62,10 @@ public class Offer implements Comparable<Offer> {
                     }
 
                     remains.clear();
+                }
 
-                    for (int x = 0; x < basket.get(itemId); x++) {
-                        remains.add(item); //create a list of items that can still make a group offer
-                    }
-
+                for (int x = 0; x < basket.get(itemId); x++) {
+                    remains.add(item); //create a list of items that can still make a group offer
                 }
             }
         }
