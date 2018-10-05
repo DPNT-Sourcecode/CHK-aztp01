@@ -37,7 +37,7 @@ public class Offer implements Comparable<Offer> {
         int finalPrice = 0;
         List<Item> remains = new ArrayList<>();
 
-        items.sort(Comparator.comparingInt(Item::getPrice));
+        items.sort((o1, o2) -> o2.getPrice() - o1.getPrice());
 
         for(Item item : items) {
             String itemId = item.getName();
