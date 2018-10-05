@@ -54,6 +54,29 @@ public class CheckoutSolutionTest {
 
         returnedValue = test.checkout("SSSSSS");
         assertEquals(90L, returnedValue.longValue());
+    }
 
+    @Test
+    public void testGroupOffer2Item(){
+        Integer returnedValue = test.checkout("SSST");
+        assertEquals(65L, returnedValue.longValue());
+
+        returnedValue = test.checkout("SSSSTT");
+        assertEquals(90L, returnedValue.longValue());
+
+        returnedValue = test.checkout("SSSSTTTTT");
+        assertEquals(135L, returnedValue.longValue());
+    }
+
+    @Test
+    public void testGroupOffer3Item(){
+        Integer returnedValue = test.checkout("SSSTX");
+        assertEquals(82L, returnedValue.longValue());
+
+        returnedValue = test.checkout("SSSSTTX");
+        assertEquals(107L, returnedValue.longValue());
+
+        returnedValue = test.checkout("STX");
+        assertEquals(45L, returnedValue.longValue());
     }
 }
