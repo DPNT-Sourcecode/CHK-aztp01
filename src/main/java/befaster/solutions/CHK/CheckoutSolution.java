@@ -34,7 +34,7 @@ public class CheckoutSolution {
             offers.addAll(item.getOffers());
         }
 
-        offers.sort((o1, o2) -> (o1.getOfferItem().equals(""))? (o1.getOfferSize() - o2.getOfferSize()) : Integer.MIN_VALUE);
+        offers.sort((o1, o2) -> (o1.getOfferItem().equals(""))? (o2.getOfferSize() - o1.getOfferSize()) : Integer.MIN_VALUE);
         for(Offer offer : offers) {
             finalPrice += offer.applyOffer(remain);
         }
