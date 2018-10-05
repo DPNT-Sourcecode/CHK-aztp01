@@ -79,4 +79,16 @@ public class CheckoutSolutionTest {
         returnedValue = test.checkout("STX");
         assertEquals(45L, returnedValue.longValue());
     }
+
+    @Test
+    public void testDeployResults() {
+        Integer returnedValue = test.checkout("AAAAA");
+        assertEquals(200L, returnedValue.longValue());
+
+        returnedValue = test.checkout("AAAAAA");
+        assertEquals(250L, returnedValue.longValue());
+
+        returnedValue = test.checkout("AAAAAAA");
+        assertEquals(300L, returnedValue.longValue());
+    }
 }
